@@ -4,12 +4,17 @@ import pandas as pd
 import smtplib
 from email.message import EmailMessage
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # CONFIGURAÇÕES
 EMAIL_DESTINO = os.getenv("EMAIL_DESTINO")
 EMAIL_ORIGEM = os.getenv("EMAIL_ORIGEM")
 SENHA_APP = os.getenv("SENHA_APP")
 VALOR_APORTE = 220.00
+
+print(EMAIL_DESTINO, EMAIL_ORIGEM, SENHA_APP)
 
 # CARTEIRA TEÓRICA COMPLETA 
 CORE = {
