@@ -34,7 +34,7 @@ jobs:
           EMAIL_ORIGEM: ${{ secrets.EMAIL_ORIGEM }}
           SENHA_APP: ${{ secrets.SENHA_APP }}
           EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
-        run: python assessor.py
+        run: python assessor-agent.py
 
       - name: Salvar Histórico no Repositório
         run: |
