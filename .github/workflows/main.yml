@@ -29,6 +29,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install yfinance pandas
 
+      - name: Debug arquivos
+        run: ls -la
+
       - name: Executar Script do Assessor
         env:
           EMAIL_ORIGEM: ${{ secrets.EMAIL_ORIGEM }}

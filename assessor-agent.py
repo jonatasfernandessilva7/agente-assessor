@@ -34,9 +34,12 @@ class AssessorIA:
     def obter_preco(self, ticker):
         try:
             df = yf.Ticker(ticker).history(period="1d")
+            if df.empty:
+                raise ValueError("Sem dados")
             return round(df['Close'].iloc[-1], 2)
         except:
-            return 0.0
+            print(f"Erro ao obter preço de {ticker}")
+            return None
 
     def definir_estrategia(self):
         mes = self.data_atual.month
@@ -97,7 +100,7 @@ class AssessorIA:
         
         AÇÕES SUGERIDAS:
         1. {s['p_ticker']}: {s['p_qtd']} cota(s) a R$ {s['p_preco']}
-        2. {s['s_ticker']}: {s['s_qtd']} cota(s) a R$ {s['p_preco']}
+        2. {s['s_ticker']}: {s['s_qtd']} cota(s) a R$ {s['s_preco']}
         
         TOTAL DO APORTE: R$ {s['total']}
         SALDO RESTANTE: R$ {round(self.aporte - s['total'], 2)}
